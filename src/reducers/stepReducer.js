@@ -35,10 +35,22 @@ const stepReducer = (state = initialState, action) => {
       state.currentStep--;
       return Object.assign({}, state);
     }
-
   }
-  return state;
 
+  if (action.type === "HANDLE_DURATION") {
+    state.subscription.duration = action.payload;
+    return Object.assign({}, state);
+  }
+  if (action.type === "HANDLE_GIGABYTE") {
+    state.subscription.gigabyte = action.payload;
+    return Object.assign({}, state);
+  }
+  if (action.type === "HANDLE_PAYMENT") {
+    state.subscription.payment = action.payload;
+    return Object.assign({}, state);
+  }
+
+  return state;
 };
 
 export default stepReducer;

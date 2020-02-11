@@ -5,7 +5,7 @@ import SubscriptionStep from "./SubscriptionStep";
 import InfoStep from "./InfoStep";
 import CardStep from "./CardStep";
 import OverviewStep from "./OverviewStep";
-import SuccessMessage from "./SuccessMessage"
+import SuccessMessage from "./SuccessMessage";
 
 class Main extends React.Component {
   constructor(props) {
@@ -31,8 +31,6 @@ class Main extends React.Component {
         {page === 3 && <CardStep></CardStep>}
         {page === 4 && <OverviewStep></OverviewStep>}
         {page === 5 && <SuccessMessage></SuccessMessage>}
-
-
 
         <div className="actions">
           <button onClick={this.nextStep}>NEXT</button>

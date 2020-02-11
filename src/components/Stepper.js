@@ -3,10 +3,9 @@ import { connect } from "react-redux";
 
 class Stepper extends React.Component {
   render() {
-
     const page = this.props.currentStep;
     return (
-      <div className="ui ordered steps">
+      <div className="ui mini ordered steps">
         <div className={"step " + (page > 0 ? "completed" : "")}>
           <div className="content">
             <div className="title">Duration</div>
