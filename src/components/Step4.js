@@ -1,13 +1,8 @@
-import React from "react"
-class Step3 extends React.Component {
-    render() {
-        return (
-          <div>
-            <h1>Hello, world!</h1>
-          
-          </div>
-        );
-      }
-    }
+import React from "react";
+class Step4 extends React.Component {
+  render() {
+    return <h1> 4 </h1>;
+  }
+}
 
-    export default Step3;
+export default Step4;

@@ -1,13 +1,8 @@
-import React from "react"
+import React from "react";
 class Step5 extends React.Component {
-    render() {
-        return (
-          <div>
-            <h1>Hello, world!</h1>
-      
-          </div>
-        );
-      }
-    }
+  render() {
+    return <h1> 5 </h1>;
+  }
+}
 
-    export default Step5;
+export default Step5;
