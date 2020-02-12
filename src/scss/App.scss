@@ -46,14 +46,14 @@ html {
         justify-content: space-between;
       }
     }
-    .overviewStep{
+    .overviewStep {
       .row {
         display: flex;
         justify-content: space-between;
       }
     }
     .step {
-     flex-grow: 3;
+      flex-grow: 3;
       display: flex;
       flex-direction: column;
       padding: 20px;
@@ -71,7 +71,6 @@ html {
       .priceTotal {
         font-weight: 700;
       }
-
 
       .actions {
         margin-top: 40px;

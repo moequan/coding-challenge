@@ -19,7 +19,7 @@ const initialState = {
     terms: false
   },
   currentStep: 1,
-  amountOfSteps: 5,
+  amountOfSteps: 5
 };
 
 const stepReducer = (state = initialState, action) => {

@@ -1,9 +1,15 @@
 import React from "react";
 import { Button, Form } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { handleInfo, handlePrevious, handleNext,handleCard } from "../actions/";
+import {
+  handleInfo,
+  handlePrevious,
+  handleNext,
+  handleCard
+} from "../actions/";
 
 class CardStep extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,20 +21,22 @@ class CardStep extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handlePrevious = this.handlePrevious.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
 
   handlePrevious() {
+
     this.props.handlePrevious();
   }
 
   handleSubmit() {
-    
-  this.props.handleCard(this.state);
+
+    this.props.handleCard(this.state);
     this.props.handleNext();
   }
 
   handleInputChange(event) {
+
     const target = event.target;
 
     const name = target.name;
@@ -40,6 +48,7 @@ class CardStep extends React.Component {
   }
 
   render() {
+
     this.props.handleInfo(this.state);
     return (
       <div className="step">
@@ -85,8 +94,13 @@ class CardStep extends React.Component {
     );
   }
 }
+
 const mapStateToProps = state => {
-  return { currentStep: state.currentStep, subscription: state.subscription,  card: state.card };
+  return {
+    currentStep: state.currentStep,
+    subscription: state.subscription,
+    card: state.card
+  };
 };
 
 export default connect(mapStateToProps, {
