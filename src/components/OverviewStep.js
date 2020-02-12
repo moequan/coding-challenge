@@ -1,8 +1,16 @@
 import React from "react";
+import { connect } from "react-redux";
+import { handleOverview} from "../actions/";
+
 class OverviewStep extends React.Component {
   render() {
-    return <h1> 4 </h1>;
+    return (<div>OVERVIEW</div>)
   }
 }
 
-export default OverviewStep;
+const mapStateToProps = state => {
+  return { currentStep: state.currentStep };
+};
+
+export default connect(mapStateToProps, { handleOverview })(OverviewStep);
+

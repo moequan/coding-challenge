@@ -33,8 +33,8 @@ class Main extends React.Component {
         {page === 5 && <SuccessMessage></SuccessMessage>}
 
         <div className="actions">
+          <button onClick={this.previousStep}>PREVIOUS</button>
           <button onClick={this.nextStep}>NEXT</button>
-          <button onClick={this.previousStep}>Previous</button>
         </div>
       </>
     );

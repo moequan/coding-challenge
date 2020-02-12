@@ -12,17 +12,33 @@ export const handlePrevious = payload => {
   };
 };
 export const handleDuration = payload => {
-  return { 
+  return {
     type: "HANDLE_DURATION",
-     payload };
+    payload
+  };
 };
 export const handleGigabyte = payload => {
-    return { 
-      type: "HANDLE_GIGABYTE",
-       payload };
+  return {
+    type: "HANDLE_GIGABYTE",
+    payload
   };
-  export const handlePayment = payload => {
-    return { 
-      type: "HANDLE_PAYMENT",
-       payload };
+};
+export const handlePayment = payload => {
+  return {
+    type: "HANDLE_PAYMENT",
+    payload
   };
+};
+export const handleInfo = payload => {
+  return {
+    type: "HANDLE_INFO",
+    payload
+  }
+}
+
+export const handleOverview = payload => {
+  return {
+    type: "HANDLE_OVERVIEW",
+    payload
+  };
+};

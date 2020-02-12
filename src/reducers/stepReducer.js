@@ -18,8 +18,9 @@ const initialState = {
   confirmation: {
     terms: false
   },
-  currentStep: 1,
-  amountOfSteps: 5
+  currentStep: 2,
+  amountOfSteps: 5,
+  next: false
 };
 
 const stepReducer = (state = initialState, action) => {
@@ -59,6 +60,13 @@ const stepReducer = (state = initialState, action) => {
         upfrontPayment: !state.subscription.upfrontPayment
       }
     };
+  }
+  if (action.type === "HANDLE_INFO") {
+    return { ...state, info: { ...state.info, ...action.payload } };
+  }
+
+  if (action.type === "HANDLE_OVERVIEW") {
+    return state;
   }
 
   return state;
