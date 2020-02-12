@@ -67,24 +67,27 @@ class InfoStep extends React.Component {
             name="lastName"
             value={this.state.lastName}
             onChange={this.handleInputChange}
+            required
           />
         </Form.Field>
         <Form.Field>
           <label>E-Mail</label>
           <input
-            placeholder="Last Name"
+            placeholder="Email"
             name="email"
             value={this.state.email}
             onChange={this.handleInputChange}
+            required
           />
         </Form.Field>
         <Form.Field>
           <label>Adress</label>
           <input
-            placeholder="Last Name"
+            placeholder="Adress"
             name="address"
             value={this.state.address}
             onChange={this.handleInputChange}
+            required
           />
         </Form.Field>
         <Form.Field>
@@ -95,6 +98,7 @@ class InfoStep extends React.Component {
             checked={this.state.terms}
             onChange={this.handleInputChange}
             control="input"
+            required
           />
         </Form.Field>
         <Button type="button" onClick={this.handlePrevious}>

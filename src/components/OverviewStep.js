@@ -4,7 +4,11 @@ import { handleOverview} from "../actions/";
 
 class OverviewStep extends React.Component {
   render() {
-    return (<div>OVERVIEW</div>)
+    return (<div className = "overview">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>)
   }
 }
 

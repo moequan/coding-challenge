@@ -20,7 +20,6 @@ const initialState = {
   },
   currentStep: 1,
   amountOfSteps: 5,
-  next: false
 };
 
 const stepReducer = (state = initialState, action) => {
@@ -62,6 +61,9 @@ const stepReducer = (state = initialState, action) => {
     };
   }
   if (action.type === "HANDLE_INFO") {
+    return { ...state, info: { ...state.info, ...action.payload } };
+  }
+  if (action.type === "HANDLE_CARD") {
     return { ...state, info: { ...state.info, ...action.payload } };
   }
 

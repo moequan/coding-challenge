@@ -35,6 +35,12 @@ export const handleInfo = payload => {
     payload
   }
 }
+export const handleCard = payload => {
+  return {
+    type: "HANDLE_CARD",
+    payload
+  }
+}
 
 export const handleOverview = payload => {
   return {
