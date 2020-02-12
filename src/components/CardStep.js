@@ -40,11 +40,12 @@ class CardStep extends React.Component {
   render() {
     this.props.handleInfo(this.state);
     return (
+      <div className="step">
       <Form onSubmit={this.handleSubmit}>
         <Form.Field>
           <label>Card Number</label>
           <input
-            placeholder="Card number"
+           
             name="number"
             value={this.state.number}
             onChange={this.handleInputChange}
@@ -54,7 +55,7 @@ class CardStep extends React.Component {
         <Form.Field>
           <label>Card expiration date</label>
           <input
-            placeholder="Card expiration date"
+           
             name="expiration"
             value={this.state.expiration}
             onChange={this.handleInputChange}
@@ -64,19 +65,21 @@ class CardStep extends React.Component {
         <Form.Field>
           <label>Card security code</label>
           <input
-            placeholder="Card security code"
+            
             name="security"
             value={this.state.security}
             onChange={this.handleInputChange}
             required
           />
         </Form.Field>
-
+        <div className="actions">
         <Button type="button" onClick={this.handlePrevious}>
           Previous
         </Button>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Next</Button>
+        </div>
       </Form>
+      </div>
     );
   }
 }

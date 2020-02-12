@@ -10,8 +10,71 @@ html {
   height: 100%;
 }
 .app {
-  .step {
+  height: 100%;
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-color: rgb(41, 40, 40);
+  .steps {
+    width: 100%;
+  }
+  .main {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    .overview {
+      width: 25%;
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 0.28571429rem;
+      flex-direction: column;
+      padding: 20px;
+      .priceTotal {
+        font-weight: 700;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .overviewStep{
+      .row {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .step {
+      width: 73%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 0.28571429rem;
+      background-color: white;
+      .priceTotal {
+        font-weight: 700;
+      }
+
+
+      .actions {
+        margin-top: 40px;
+      }
+      .row,
+      .field {
+        margin-bottom: 20px;
+        #terms {
+          margin-top: 2px;
+          margin-right: 5px;
+        }
+      }
+    }
   }
 }

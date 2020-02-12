@@ -38,8 +38,8 @@ class SubscriptionStep extends React.Component {
     console.log(this.props);
     return (
       <div className="step">
-        <div className="duration">
-          <p>How long you want to use the cloud ?</p>
+        <div className="duration row">
+          <p>Subscription duration:</p>
           <div>
             <Button.Group floated="left">
               <Button
@@ -72,8 +72,8 @@ class SubscriptionStep extends React.Component {
             </Button.Group>
           </div>
         </div>
-        <div className="gigabyte">
-          <p>How many gigabytes?</p>
+        <div className="gigabyte row">
+          <p>Cloud capacity</p>
 
           <div>
             <Button.Group floated="left">
@@ -138,7 +138,7 @@ class SubscriptionStep extends React.Component {
             </Button.Group>
           </div>
         </div>
-        <div className="payment">
+        <div className="payment row">
           <p>Upfront payment?</p>
           <Button.Group floated="left">
             <Button
@@ -161,7 +161,8 @@ class SubscriptionStep extends React.Component {
         </div>
 
         <div className="actions">
-          <button onClick={this.nextStep}>NEXT</button>
+        <Button onClick={this.nextStep}>NEXT</Button>
+          {/* <button onClick={this.nextStep}>NEXT</button> */}
         </div>
       </div>
     );

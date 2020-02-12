@@ -25,7 +25,11 @@ class InfoStep extends React.Component {
   }
 
   handleSubmit() {
-    this.props.handleNext();
+    if (this.state.terms) this.props.handleNext();
+    else {
+      const form = document.querySelector("#infoForm");
+      form.reportValidity();
+    }
   }
 
   handleInputChange(event, data) {
@@ -49,63 +53,67 @@ class InfoStep extends React.Component {
   render() {
     this.props.handleInfo(this.state);
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Field>
-          <label>First Name</label>
-          <input
-            placeholder="First Name"
-            name="firstName"
-            value={this.state.firstName}
-            onChange={this.handleInputChange}
-            required
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Last Name</label>
-          <input
-            placeholder="Last Name"
-            name="lastName"
-            value={this.state.lastName}
-            onChange={this.handleInputChange}
-            required
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>E-Mail</label>
-          <input
-            placeholder="Email"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleInputChange}
-            required
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Adress</label>
-          <input
-            placeholder="Adress"
-            name="address"
-            value={this.state.address}
-            onChange={this.handleInputChange}
-            required
-          />
-        </Form.Field>
-        <Form.Field>
-          <Checkbox
-            label="I agree to the Terms and Conditions"
-            name="terms"
-            type="checkbox"
-            checked={this.state.terms}
-            onChange={this.handleInputChange}
-            control="input"
-            required
-          />
-        </Form.Field>
-        <Button type="button" onClick={this.handlePrevious}>
-          Previous
-        </Button>
-        <Button type="submit">Submit</Button>
-      </Form>
+      <div className="step">
+        <Form id="infoForm" onSubmit={this.handleSubmit}>
+          <Form.Field>
+            <label>First Name</label>
+            <input
+              name="firstName"
+              value={this.state.firstName}
+              onChange={this.handleInputChange}
+              required
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Last Name</label>
+            <input
+              name="lastName"
+              value={this.state.lastName}
+              onChange={this.handleInputChange}
+              required
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>E-Mail</label>
+            <input
+              name="email"
+              value={this.state.email}
+              onChange={this.handleInputChange}
+              required
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Address</label>
+            <input
+              name="address"
+              value={this.state.address}
+              onChange={this.handleInputChange}
+              required
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>
+             
+              <input
+                name="terms"
+                required
+                type="checkbox"
+                checked={this.state.terms}
+                onChange={this.handleInputChange}
+                id="terms"
+              />
+                  I agree to the Terms and Conditions
+
+            </label>
+          </Form.Field>
+          <div className="actions">
+            <Button type="button" onClick={this.handlePrevious}>
+              Previous
+            </Button>
+            <Button type="submit">Next</Button>
+          </div>
+        </Form>
+      </div>
     );
   }
 }
