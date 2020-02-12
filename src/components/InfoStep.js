@@ -1,7 +1,7 @@
 import React from "react";
-import { Checkbox, Form } from "semantic-ui-react";
+import { Button, Checkbox, Form } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { handleInfo } from "../actions/";
+import { handleInfo, handlePrevious, handleNext } from "../actions/";
 
 class InfoStep extends React.Component {
   constructor(props) {
@@ -15,7 +15,17 @@ class InfoStep extends React.Component {
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handlePrevious = this.handlePrevious.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handlePrevious() {
+    this.props.handlePrevious();
+  }
+
+  handleSubmit() {
+    this.props.handleNext();
   }
 
   handleInputChange(event, data) {
@@ -39,7 +49,7 @@ class InfoStep extends React.Component {
   render() {
     this.props.handleInfo(this.state);
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Field>
           <label>First Name</label>
           <input
@@ -87,7 +97,10 @@ class InfoStep extends React.Component {
             control="input"
           />
         </Form.Field>
-        
+        <Button type="button" onClick={this.handlePrevious}>
+          Previous
+        </Button>
+        <Button type="submit">Submit</Button>
       </Form>
     );
   }
@@ -97,5 +110,7 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-  handleInfo
+  handleInfo,
+  handlePrevious,
+  handleNext
 })(InfoStep);

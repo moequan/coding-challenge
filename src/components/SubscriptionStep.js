@@ -1,7 +1,13 @@
 import React from "react";
 import { Button } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { handleDuration, handleGigabyte, handlePayment } from "../actions/";
+import {
+  handleDuration,
+  handleGigabyte,
+  handlePayment,
+  handlePrevious,
+  handleNext
+} from "../actions/";
 
 class SubscriptionStep extends React.Component {
   constructor(props) {
@@ -9,6 +15,7 @@ class SubscriptionStep extends React.Component {
     this.handleDuration = this.handleDuration.bind(this);
     this.handleGigabyte = this.handleGigabyte.bind(this);
     this.handlePayment = this.handlePayment.bind(this);
+    this.nextStep = this.nextStep.bind(this);
   }
 
   handleDuration(e) {
@@ -21,6 +28,10 @@ class SubscriptionStep extends React.Component {
 
   handlePayment(e) {
     this.props.handlePayment();
+  }
+
+  nextStep() {
+    this.props.handleNext();
   }
 
   render() {
@@ -148,6 +159,10 @@ class SubscriptionStep extends React.Component {
             </Button>
           </Button.Group>
         </div>
+
+        <div className="actions">
+          <button onClick={this.nextStep}>NEXT</button>
+        </div>
       </div>
     );
   }
@@ -160,5 +175,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   handleDuration,
   handlePayment,
-  handleGigabyte
+  handleGigabyte,
+  handleNext
 })(SubscriptionStep);

@@ -18,7 +18,7 @@ const initialState = {
   confirmation: {
     terms: false
   },
-  currentStep: 2,
+  currentStep: 1,
   amountOfSteps: 5,
   next: false
 };
