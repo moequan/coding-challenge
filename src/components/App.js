@@ -12,7 +12,6 @@ class App extends React.Component {
          <Stepper></Stepper> 
          <Overview></Overview>
          <Main></Main>    
-      
         </div>
       );
     }

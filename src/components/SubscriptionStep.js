@@ -12,34 +12,50 @@ class SubscriptionStep extends React.Component {
   }
 
   handleDuration(e) {
-    this.props.handleDuration(e.currentTarget.dataset.value);
-    e.target.classList.className = "active" ? "" : "active";
+    this.props.handleDuration(parseInt(e.currentTarget.dataset.value));
   }
 
   handleGigabyte(e) {
-    this.props.handleGigabyte(e.currentTarget.dataset.value);
-    e.target.classList.className = "active" ? "" : "active";
+    this.props.handleGigabyte(parseInt(e.currentTarget.dataset.value));
   }
 
   handlePayment(e) {
-    this.props.handlePayment(e.currentTarget.dataset.value);
-    e.target.classList.className = "active" ? "" : "active";
+    this.props.handlePayment();
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="step">
         <div className="duration">
           <p>How long you want to use the cloud ?</p>
           <div>
             <Button.Group floated="left">
-              <Button onClick={this.handleDuration} data-value="3">
+              <Button
+                onClick={this.handleDuration}
+                data-value="3"
+                className={
+                  "" + (this.props.subscription.duration === 3 ? "active" : "")
+                }
+              >
                 3
               </Button>
-              <Button onClick={this.handleDuration} data-value="6">
+              <Button
+                onClick={this.handleDuration}
+                data-value="6"
+                className={
+                  "" + (this.props.subscription.duration === 6 ? "active" : "")
+                }
+              >
                 6
               </Button>
-              <Button onClick={this.handleDuration} data-value="12" active>
+              <Button
+                onClick={this.handleDuration}
+                data-value="12"
+                className={
+                  "" + (this.props.subscription.duration === 12 ? "active" : "")
+                }
+              >
                 12
               </Button>
             </Button.Group>
@@ -50,20 +66,86 @@ class SubscriptionStep extends React.Component {
 
           <div>
             <Button.Group floated="left">
-              <Button>3</Button>
-              <Button active>5</Button>
-              <Button>10</Button>
-              <Button>20</Button>
-              <Button>30</Button>
-              <Button>50</Button>
+              <Button
+                onClick={this.handleGigabyte}
+                data-value="3"
+                className={
+                  "" + (this.props.subscription.gigabytes === 3 ? "active" : "")
+                }
+              >
+                3
+              </Button>
+              <Button
+                onClick={this.handleGigabyte}
+                data-value="12"
+                className={
+                  "" + (this.props.subscription.gigabytes === 5 ? "active" : "")
+                }
+              >
+                5
+              </Button>
+              <Button
+                onClick={this.handleGigabyte}
+                data-value="10"
+                className={
+                  "" +
+                  (this.props.subscription.gigabytes === 10 ? "active" : "")
+                }
+              >
+                10
+              </Button>
+              <Button
+                onClick={this.handleGigabyte}
+                data-value="20"
+                className={
+                  "" +
+                  (this.props.subscription.gigabytes === 20 ? "active" : "")
+                }
+              >
+                20
+              </Button>
+              <Button
+                onClick={this.handleGigabyte}
+                data-value="30"
+                className={
+                  "" +
+                  (this.props.subscription.gigabytes === 30 ? "active" : "")
+                }
+              >
+                30
+              </Button>
+              <Button
+                onClick={this.handleGigabyte}
+                data-value="50"
+                className={
+                  "" +
+                  (this.props.subscription.gigabytes === 50 ? "active" : "")
+                }
+              >
+                50
+              </Button>
             </Button.Group>
           </div>
         </div>
         <div className="payment">
           <p>Upfront payment?</p>
           <Button.Group floated="left">
-            <Button>Yes</Button>
-            <Button active>No</Button>
+            <Button
+              onClick={this.handlePayment}
+              className={
+                "" + (this.props.subscription.upfrontPayment ? "active" : "")
+              }
+            >
+              Yes
+            </Button>
+            <Button
+              onClick={this.handlePayment}
+              className={
+                "" + (!this.props.subscription.upfrontPayment ? "active" : "")
+              }
+            >
+              No
+            </Button>
           </Button.Group>
         </div>
       </div>
@@ -72,7 +154,7 @@ class SubscriptionStep extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { currentStep: state.currentStep };
+  return { currentStep: state.currentStep, subscription: state.subscription };
 };
 
 export default connect(mapStateToProps, {

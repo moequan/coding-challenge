@@ -38,16 +38,27 @@ const stepReducer = (state = initialState, action) => {
   }
 
   if (action.type === "HANDLE_DURATION") {
-    state.subscription.duration = action.payload;
-    return Object.assign({}, state);
+    return {
+      ...state,
+      subscription: { ...state.subscription, duration: action.payload }
+    };
   }
+
   if (action.type === "HANDLE_GIGABYTE") {
-    state.subscription.gigabyte = action.payload;
-    return Object.assign({}, state);
+    return {
+      ...state,
+      subscription: { ...state.subscription, gigabytes: action.payload }
+    };
   }
+
   if (action.type === "HANDLE_PAYMENT") {
-    state.subscription.payment = action.payload;
-    return Object.assign({}, state);
+    return {
+      ...state,
+      subscription: {
+        ...state.subscription,
+        upfrontPayment: !state.subscription.upfrontPayment
+      }
+    };
   }
 
   return state;
