@@ -29,7 +29,7 @@ class Overview extends React.Component {
           {subscription.upfrontPayment && (
             <div className="paymentTotal row">
               <p>Upfront payment discount (-10%)</p>
-              <p>-{upfront}$</p>
+              <p>-{upfront} $</p>
             </div>
           )}
         </div>

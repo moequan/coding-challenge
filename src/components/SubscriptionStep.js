@@ -5,7 +5,6 @@ import {
   handleDuration,
   handleGigabyte,
   handlePayment,
-  handlePrevious,
   handleNext
 } from "../actions/";
 
@@ -35,7 +34,6 @@ class SubscriptionStep extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="step">
         <div className="duration row">

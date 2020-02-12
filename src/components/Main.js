@@ -11,7 +11,7 @@ class Main extends React.Component {
   render() {
     const page = this.props.currentStep;
     return (
-      <div class="main">
+      <div className="main">
         {page === 1 && <SubscriptionStep></SubscriptionStep>}
         {page === 2 && <InfoStep></InfoStep>}
         {page === 3 && <CardStep></CardStep>}

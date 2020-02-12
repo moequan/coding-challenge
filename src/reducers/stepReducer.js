@@ -64,7 +64,7 @@ const stepReducer = (state = initialState, action) => {
     return { ...state, info: { ...state.info, ...action.payload } };
   }
   if (action.type === "HANDLE_CARD") {
-    return { ...state, info: { ...state.info, ...action.payload } };
+    return { ...state, card: { ...state.card, ...action.payload } };
   }
 
   if (action.type === "HANDLE_OVERVIEW") {

@@ -1,23 +1,23 @@
 import React from "react";
-import { Button, Checkbox, Form } from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { handleInfo, handlePrevious, handleNext } from "../actions/";
 
 class InfoStep extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      address: "",
+      firstName: this.props.info.firstName,
+      lastName: this.props.info.lastName,
+      email: this.props.info.email,
+      address: this.props.info.address,
       terms: false
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handlePrevious = this.handlePrevious.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handlePrevious() {
@@ -25,8 +25,10 @@ class InfoStep extends React.Component {
   }
 
   handleSubmit() {
-    if (this.state.terms) this.props.handleNext();
-    else {
+    if (this.state.terms) {
+      this.props.handleInfo(this.state);
+      this.props.handleNext();
+    } else {
       const form = document.querySelector("#infoForm");
       form.reportValidity();
     }
@@ -51,7 +53,6 @@ class InfoStep extends React.Component {
   }
 
   render() {
-    this.props.handleInfo(this.state);
     return (
       <div className="step">
         <Form id="infoForm" onSubmit={this.handleSubmit}>
@@ -77,6 +78,7 @@ class InfoStep extends React.Component {
             <label>E-Mail</label>
             <input
               name="email"
+              type="email"
               value={this.state.email}
               onChange={this.handleInputChange}
               required
@@ -93,7 +95,6 @@ class InfoStep extends React.Component {
           </Form.Field>
           <Form.Field>
             <label>
-             
               <input
                 name="terms"
                 required
@@ -102,8 +103,7 @@ class InfoStep extends React.Component {
                 onChange={this.handleInputChange}
                 id="terms"
               />
-                  I agree to the Terms and Conditions
-
+              I agree to the Terms and Conditions
             </label>
           </Form.Field>
           <div className="actions">
@@ -117,8 +117,13 @@ class InfoStep extends React.Component {
     );
   }
 }
+
 const mapStateToProps = state => {
-  return { currentStep: state.currentStep, subscription: state.subscription };
+  return {
+    currentStep: state.currentStep,
+    subscription: state.subscription,
+    info: state.info
+  };
 };
 
 export default connect(mapStateToProps, {
